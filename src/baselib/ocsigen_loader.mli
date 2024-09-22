@@ -68,6 +68,8 @@ val set_module_init_function : string -> (unit -> unit) -> unit
     be used to initialize the module when [init_module name] is called.
     Will replace the prvious value.  *)
 
+val init_all : unit -> unit
+
 val init_module : (unit -> unit) -> (unit -> unit) -> bool -> string -> unit
 (** [init_module pre post force name] runs the init function for the module
     [name]. If [force] is [false], remember [name] so that the init function

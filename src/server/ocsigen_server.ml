@@ -450,4 +450,5 @@ let start ?(ports = [`All, 8080]) ?ssl_ports ?ssl_info ?default_charset ?logdir
   Option.iter Ocsigen_config.set_ssl_info ssl_info;
   main (fun () ->
     Ocsigen_extensions.start_initialisation ();
-    Ocsigen_extensions.set_hosts instructions)
+    Ocsigen_extensions.set_hosts instructions;
+    Ocsigen_loader.init_all ())

@@ -107,6 +107,9 @@ let add_module_init_function name f =
   init_functions := M.update name update !init_functions;
   if get_init_on_load () then f ()
 
+let init_all () =
+  M.iter (fun _ fs -> List.iter (fun f -> f ()) fs) !init_functions
+
 let init_module pre post force name =
   let f =
     try
